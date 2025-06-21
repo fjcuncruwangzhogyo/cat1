@@ -1,0 +1,429 @@
+/* 宫崎骏风格配色 - 调整为更温暖柔和的色调 */
+:root {
+    --ghibli-green: #8FBC8F;     /* 更柔和的绿色 */
+    --ghibli-blue: #A6CFE5;      /* 更柔和的蓝色 */
+    --ghibli-beige: #F8E9D2;     /* 更温暖的米色 */
+    --ghibli-brown: #9E7A5C;     /* 更温暖的棕色 */
+    --ghibli-yellow: #F6D87B;    /* 更温暖的黄色 */
+    --ghibli-pink: #F8C8DC;      /* 更柔和的粉色 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ma Shan Zheng', cursive, sans-serif;
+    background: var(--ghibli-blue);
+    overflow-x: hidden;
+    color: var(--ghibli-brown);
+    background-image: linear-gradient(to bottom, #CCEAFF, var(--ghibli-blue) 70%);
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* 天空背景 */
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    background: linear-gradient(to bottom, #DAF0FF, var(--ghibli-blue));
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* 增强云朵效果 */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.9;
+    z-index: 2;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.05));
+}
+
+.cloud:before, .cloud:after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud1 {
+    width: 120px;
+    height: 60px;
+    top: 15%;
+    left: 10%;
+}
+
+.cloud1:before {
+    width: 80px;
+    height: 80px;
+    top: -30px;
+    left: 20px;
+}
+
+.cloud1:after {
+    width: 60px;
+    height: 60px;
+    top: -20px;
+    left: 60px;
+}
+
+.cloud2 {
+    width: 100px;
+    height: 50px;
+    top: 30%;
+    right: 15%;
+}
+
+.cloud2:before {
+    width: 70px;
+    height: 70px;
+    top: -25px;
+    left: 15px;
+}
+
+.cloud2:after {
+    width: 50px;
+    height: 50px;
+    top: -15px;
+    left: 50px;
+}
+
+.cloud3 {
+    width: 80px;
+    height: 40px;
+    top: 20%;
+    left: 50%;
+}
+
+.cloud3:before {
+    width: 60px;
+    height: 60px;
+    top: -20px;
+    left: 10px;
+}
+
+.cloud3:after {
+    width: 40px;
+    height: 40px;
+    top: -10px;
+    left: 40px;
+}
+
+/* 星星效果 */
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* 内容区域 */
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding: 2rem 0;
+}
+
+.title {
+    font-size: 3.5rem;
+    color: var(--ghibli-brown);
+    margin-bottom: 2.5rem;
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.3);
+    position: relative;
+    display: inline-block;
+}
+
+.title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10%;
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--ghibli-brown), transparent);
+}
+
+/* 小猫容器 */
+.cat-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 2rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+.cat {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 15;
+    border: 1px dashed rgba(255, 0, 0, 0);
+    animation: gentle-float 6s ease-in-out infinite;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.05));
+}
+
+@keyframes gentle-float {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        transform: translate(-50%, -52%);
+    }
+}
+
+/* 为SVG元素添加过渡效果 */
+.cat svg * {
+    transition: all 0.3s ease;
+}
+
+/* 控制面板 */
+.control-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    font-family: 'Ma Shan Zheng', cursive, sans-serif;
+    font-size: 1.2rem;
+    background: var(--ghibli-beige);
+    border: 2px solid var(--ghibli-brown);
+    border-radius: 20px;
+    color: var(--ghibli-brown);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    min-width: 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.action-btn:hover {
+    background: var(--ghibli-yellow);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn:hover:before {
+    left: 100%;
+}
+
+.action-btn:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* 地面 - 更温暖的绿色 */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background: var(--ghibli-green);
+    z-index: 3;
+    border-top: 5px solid #7BA37B;
+    background-image: linear-gradient(to bottom, var(--ghibli-green), #7BA37B);
+}
+
+.grass-field {
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    height: 40px;
+    background-image: 
+        radial-gradient(circle at 50% 0, var(--ghibli-green) 20%, transparent 20%),
+        radial-gradient(circle at 25% 0, var(--ghibli-green) 20%, transparent 20%),
+        radial-gradient(circle at 75% 0, var(--ghibli-green) 20%, transparent 20%);
+    background-size: 40px 40px;
+    background-repeat: repeat-x;
+    z-index: 4;
+}
+
+/* 装饰元素 */
+.decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+
+.tree {
+    position: absolute;
+    bottom: 28%;
+    width: 80px;
+    height: 150px;
+}
+
+.tree:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 50px;
+    background: var(--ghibli-brown);
+    border-radius: 5px;
+}
+
+.tree:after {
+    content: '';
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 120px;
+    background: var(--ghibli-green);
+    border-radius: 50% 50% 20% 20%;
+}
+
+.tree1 {
+    left: 10%;
+}
+
+.tree2 {
+    right: 10%;
+    transform: scaleX(-1);
+}
+
+.flower {
+    position: absolute;
+    bottom: 28%;
+    width: 30px;
+    height: 60px;
+}
+
+.flower:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 30px;
+    background: var(--ghibli-green);
+}
+
+.flower:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--ghibli-pink);
+    border-radius: 50%;
+    box-shadow: 
+        -10px 5px 0 var(--ghibli-pink),
+        10px 5px 0 var(--ghibli-pink),
+        0 -10px 0 var(--ghibli-pink),
+        0 10px 0 var(--ghibli-pink);
+}
+
+.flower1 {
+    left: 30%;
+}
+
+.flower2 {
+    left: 50%;
+}
+
+.flower3 {
+    right: 30%;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .cat-container {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .action-btn {
+        padding: 8px 15px;
+        font-size: 1rem;
+    }
+    
+    .tree {
+        width: 60px;
+        height: 120px;
+    }
+    
+    .tree:after {
+        width: 60px;
+        height: 90px;
+    }
+}
+
+/* 动画效果 */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.cloud1 {
+    animation: float 8s ease-in-out infinite;
+}
+
+.cloud2 {
+    animation: float 12s ease-in-out infinite;
+}
+
+.cloud3 {
+    animation: float 10s ease-in-out infinite;
+} 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="180" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- 小猫身体 -->
+  <ellipse cx="100" cy="100" rx="50" ry="40" fill="#F9E6C9" stroke="#8B4513" stroke-width="2" />
+  
+  <!-- 头部 -->
+  <circle cx="100" cy="70" r="35" fill="#F9E6C9" stroke="#8B4513" stroke-width="2" />
+  
+  <!-- 耳朵 -->
+  <path d="M70 50 L85 65 L75 75 Z" fill="#F9E6C9" stroke="#8B4513" stroke-width="2" />
+  <path d="M130 50 L115 65 L125 75 Z" fill="#F9E6C9" stroke="#8B4513" stroke-width="2" />
+  
+  <!-- 眼睛 -->
+  <g class="eyes">
+    <circle cx="85" cy="65" r="5" fill="#8B4513" />
+    <circle cx="115" cy="65" r="5" fill="#8B4513" />
+    <circle cx="83" cy="63" r="2" fill="white" />
+    <circle cx="113" cy="63" r="2" fill="white" />
+  </g>
+  
+  <!-- 闭眼状态 -->
+  <g class="eyes-closed" opacity="0">
+    <path d="M80 65 Q85 60 90 65" stroke="#8B4513" stroke-width="2" fill="none" />
+    <path d="M110 65 Q115 60 120 65" stroke="#8B4513" stroke-width="2" fill="none" />
+  </g>
+  
+  <!-- 鼻子 -->
+  <circle cx="100" cy="75" r="4" fill="#FFB6C1" />
+  
+  <!-- 嘴巴 -->
+  <path class="mouth" d="M100 80 Q100 85 95 85 M100 80 Q100 85 105 85" stroke="#8B4513" stroke-width="2" fill="none" />
+  
+  <!-- 胡须 -->
+  <line x1="85" y1="80" x2="65" y2="75" stroke="#8B4513" stroke-width="1" />
+  <line x1="85" y1="82" x2="65" y2="82" stroke="#8B4513" stroke-width="1" />
+  <line x1="85" y1="84" x2="65" y2="89" stroke="#8B4513" stroke-width="1" />
+  
+  <line x1="115" y1="80" x2="135" y2="75" stroke="#8B4513" stroke-width="1" />
+  <line x1="115" y1="82" x2="135" y2="82" stroke="#8B4513" stroke-width="1" />
+  <line x1="115" y1="84" x2="135" y2="89" stroke="#8B4513" stroke-width="1" />
+  
+  <!-- 腿 -->
+  <g class="legs">
+    <ellipse cx="70" cy="125" rx="15" ry="10" fill="#F9E6C9" stroke="#8B4513" stroke-width="2" />
+    <ellipse cx="130" cy="125" rx="15" ry="10" fill="#F9E6C9" stroke="#8B4513" stroke-width="2" />
+  </g>
+  
+  <!-- 尾巴 -->
+  <path class="tail" d="M145 90 Q170 70 180 90" stroke="#8B4513" stroke-width="4" fill="#F9E6C9" />
+</svg> 

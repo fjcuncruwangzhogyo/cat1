@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宫崎骏风格的小猫世界</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <!-- 首先引入GSAP动画库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // 检查GSAP是否成功加载
+        window.addEventListener('load', () => {
+            if (window.gsap) {
+                console.log('GSAP库已成功加载');
+            } else {
+                console.error('GSAP库加载失败');
+                alert('动画库加载失败，小猫可能无法正常显示。请刷新页面重试。');
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="sky">
+            <div class="cloud cloud1"></div>
+            <div class="cloud cloud2"></div>
+            <div class="cloud cloud3"></div>
+            <div class="stars"></div>
+        </div>
+        
+        <div class="content">
+            <h1 class="title">小猫的奇幻之旅</h1>
+            
+            <div class="cat-container">
+                <div class="cat" style="border: 1px dashed rgba(255, 0, 0, 0.3);">
+                    <!-- 优化后的小猫SVG -->
+                    <svg width="200" height="180" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
+                      <!-- 阴影 -->
+                      <ellipse cx="100" cy="140" rx="45" ry="10" fill="rgba(0,0,0,0.1)" />
+                      
+                      <!-- 尾巴 -->
+                      <path class="tail" d="M145 90 Q180 60 170 90" stroke="#8B4513" stroke-width="4" fill="#FFE0B2" stroke-linecap="round" />
+                      
+                      <!-- 小猫身体 -->
+                      <ellipse cx="100" cy="100" rx="45" ry="35" fill="#FFE0B2" stroke="#8B4513" stroke-width="2" />
+                      
+                      <!-- 头部 -->
+                      <circle cx="100" cy="70" r="35" fill="#FFE0B2" stroke="#8B4513" stroke-width="2" />
+                      
+                      <!-- 耳朵 -->
+                      <path d="M70 45 Q75 25 85 45" fill="#FFE0B2" stroke="#8B4513" stroke-width="2" />
+                      <path d="M130 45 Q125 25 115 45" fill="#FFE0B2" stroke="#8B4513" stroke-width="2" />
+                      
+                      <!-- 耳朵内部 -->
+                      <path d="M75 43 Q78 31 83 43" fill="#FFCDD2" stroke="none" />
+                      <path d="M125 43 Q122 31 117 43" fill="#FFCDD2" stroke="none" />
+                      
+                      <!-- 眼睛 -->
+                      <g class="eyes">
+                        <circle cx="85" cy="65" r="6" fill="#8B4513" />
+                        <circle cx="115" cy="65" r="6" fill="#8B4513" />
+                        <circle cx="82" cy="62" r="2" fill="white" />
+                        <circle cx="112" cy="62" r="2" fill="white" />
+                      </g>
+                      
+                      <!-- 闭眼状态 -->
+                      <g class="eyes-closed" opacity="0">
+                        <path d="M80 65 Q85 60 90 65" stroke="#8B4513" stroke-width="2" fill="none" stroke-linecap="round" />
+                        <path d="M110 65 Q115 60 120 65" stroke="#8B4513" stroke-width="2" fill="none" stroke-linecap="round" />
+                      </g>
+                      
+                      <!-- 腮红 -->
+                      <circle cx="75" cy="75" r="7" fill="#FFCDD2" opacity="0.6" />
+                      <circle cx="125" cy="75" r="7" fill="#FFCDD2" opacity="0.6" />
+                      
+                      <!-- 鼻子 -->
+                      <path d="M97 75 Q100 78 103 75" fill="#FF7D6B" stroke="#8B4513" stroke-width="0.5" />
+                      
+                      <!-- 嘴巴 -->
+                      <path class="mouth" d="M100 80 Q100 85 95 85 M100 80 Q100 85 105 85" stroke="#8B4513" stroke-width="1.5" fill="none" stroke-linecap="round" />
+                      
+                      <!-- 胡须 -->
+                      <line x1="85" y1="80" x2="65" y2="75" stroke="#8B4513" stroke-width="0.8" />
+                      <line x1="85" y1="82" x2="65" y2="82" stroke="#8B4513" stroke-width="0.8" />
+                      <line x1="85" y1="84" x2="65" y2="89" stroke="#8B4513" stroke-width="0.8" />
+                      
+                      <line x1="115" y1="80" x2="135" y2="75" stroke="#8B4513" stroke-width="0.8" />
+                      <line x1="115" y1="82" x2="135" y2="82" stroke="#8B4513" stroke-width="0.8" />
+                      <line x1="115" y1="84" x2="135" y2="89" stroke="#8B4513" stroke-width="0.8" />
+                      
+                      <!-- 花纹 -->
+                      <path d="M80 100 Q90 95 100 100 Q110 95 120 100" stroke="#8B4513" stroke-width="0.8" fill="none" />
+                      
+                      <!-- 腿 -->
+                      <g class="legs">
+                        <ellipse cx="70" cy="125" rx="15" ry="10" fill="#FFE0B2" stroke="#8B4513" stroke-width="2" />
+                        <ellipse cx="130" cy="125" rx="15" ry="10" fill="#FFE0B2" stroke="#8B4513" stroke-width="2" />
+                      </g>
+                      
+                      <!-- 爪子 -->
+                      <path d="M65 130 Q68 133 71 130" stroke="#8B4513" stroke-width="0.8" fill="none" />
+                      <path d="M70 130 Q73 133 76 130" stroke="#8B4513" stroke-width="0.8" fill="none" />
+                      
+                      <path d="M125 130 Q128 133 131 130" stroke="#8B4513" stroke-width="0.8" fill="none" />
+                      <path d="M130 130 Q133 133 136 130" stroke="#8B4513" stroke-width="0.8" fill="none" />
+                    </svg>
+                </div>
+                <div class="grass"></div>
+            </div>
+            
+            <div class="control-panel">
+                <div class="buttons">
+                    <button class="action-btn" data-action="walk">散步</button>
+                    <button class="action-btn" data-action="jump">跳跃</button>
+                    <button class="action-btn" data-action="sleep">睡觉</button>
+                    <button class="action-btn" data-action="play">玩耍</button>
+                    <button class="action-btn" data-action="meow">喵喵叫</button>
+                    <button class="action-btn" data-action="roll">翻滚</button>
+                    <button class="action-btn" data-action="stretch">伸懒腰</button>
+                    <button class="action-btn" data-action="catchMouse">捉老鼠</button>
+                    <button class="action-btn" data-action="clean">洗脸</button>
+                    <button class="action-btn" data-action="sunbathe">晒太阳</button>
+                    <button class="action-btn" data-action="knockWall">敲墙</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ground">
+            <div class="grass-field"></div>
+        </div>
+        
+        <div class="decorations">
+            <div class="tree tree1"></div>
+            <div class="tree tree2"></div>
+            <div class="flower flower1"></div>
+            <div class="flower flower2"></div>
+            <div class="flower flower3"></div>
+        </div>
+    </div>
+
+    <!-- 引入主脚本 -->
+    <script src="js/main.js"></script>
+</body>
+</html> 
